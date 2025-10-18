@@ -20,7 +20,7 @@ public class ProductService {
 		return productRepository.findAll();
 	}
 
-	public Product getProductById(String id) {
+	public Product getProductById(Long id) {
 		return productRepository.findById(id).orElse(null);
 	}
 
@@ -28,7 +28,7 @@ public class ProductService {
 		return productRepository.save(product);
 	}
 
-	public Product updateStock(String id, int stock) {
+	public Product updateStock(Long id, int stock) {
 		Product product = productRepository.findById(id).orElse(null);
 		if (product != null) {
 			product.setStock(stock);
