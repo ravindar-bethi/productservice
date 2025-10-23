@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.dell.cloud.productservice.entity.Product;
 import com.dell.cloud.productservice.service.ProductService;
 
-@RestController
+@RestController("/product")
 public class ProductController {
 	private final ProductService productService;
 	
@@ -27,10 +27,10 @@ public class ProductController {
 	}
 	
 	@GetMapping("/{id}")
-	public Product getProduct(@PathVariable Long id) {
+	public Product getProductById(@PathVariable Long id) {
 		return productService.getProductById(id);
 	}
-	@PostMapping
+	@PostMapping("/save")
 	public Product addProduct(@RequestBody Product product){
 		return productService.addProduct(product);
 	}
